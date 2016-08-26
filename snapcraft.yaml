@@ -1,0 +1,41 @@
+name: btpdsnap
+version: "0.16"
+summary: btpd - The BitTorret Protocol Daemon
+description: |
+  Btpd is a utility for sharing files over the BitTorrent network protocol.
+  It runs in daemon mode, thus needing no controlling terminal or gui.
+  Instead, the daemon is controlled by btcli, its command line utility,
+  or other programs capable of sending commands and queries on the control
+  socket.
+confinement: strict
+
+apps:
+  btpd:
+    command: ./btpd.wrapper
+    plugs: [network, network-bind, home]
+  cli:
+    command: bin/btcli
+    plugs: [network, home]
+  info:
+    command: bin/btinfo
+    plugs: [network, home]
+
+parts:
+  btpd:
+    source: https://github.com/btpd/btpd/archive/v0.16.tar.gz
+    plugin: autotools
+    install-via: prefix
+    build-packages:
+      - autoconf
+      - build-essential
+      - libssl-dev
+  glue:
+    plugin: dump
+    source: .
+    snap:
+      - btpd.wrapper
+  licensefile:
+    plugin: dump
+    source: https://github.com/btpd/btpd/archive/v0.16.tar.gz
+    snap:
+      - COPYRIGHT

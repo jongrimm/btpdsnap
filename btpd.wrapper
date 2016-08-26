@@ -1,0 +1,16 @@
+#!/bin/sh
+
+PORT="--port 6881" #Defaults to port 6881
+#BTPDIR="-d $SNAP_USER_DATA/.btpd" #Defaults to 
+#USE_IPV4="-4" #Defaults enabled
+#USE_IPV6="-6" #Defaults disabled
+BW_IN="--bw-in 50"  #Limit incoming traffic, kB/s. Default 0 means unlimited.
+BW_OUT="--bw-out 10" #Limit outgoing traffic, kB/s. Default 0 means unlimited.
+#IP_ADDR="--ip 127.0.0.1" #Let tracker distribute this ip address.
+#LOGFILE="--logfile $SNAP_USER_DATA/.btpd" #defaults to btpd dir.
+#IPCPROT="--ipcprot mode" #Protection mode of socket. Octal.
+MAX_PEERS="--max-peers 20" #Limit peers
+#MAX_UPLOADS="--max-uploads 10" # See man page.
+#PREALLOC="--prealloc 2048" #Prealloc disk space in chunks of n kB.
+
+exec $SNAP/bin/btpd $PORT $BTPDIR $USE_IPV4 $USE_IPV6 $BW_IN $BW_OUT $IP_ADDR $LOGFILE $IPCPROT $MAX_PEERS $MAX_UPLOADS $PREALLOC
