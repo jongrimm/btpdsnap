@@ -15,3 +15,5 @@ To start the btpd daemon just issue `btdpsnap.btpd` and the daemon will be start
 
 **NOTE:** Since snapd doesn't know that btpdsnap.btpd is a daemon, it doesn't know how to stop it, so you'll need to manage that manually.  Especially important when you need to update or remove the snap!  You can stop the daemon via `btdpsnap.cli kill`. 
 
+**NOTE:** The snap is confined to only file access in its own snap data areas, or in $HOME.  So you'll probably need to add .torrent files from one of those to locations and specify the directory via the `-d` flag to btdp.cli. 
+
