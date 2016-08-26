@@ -1,9 +1,11 @@
 # btpdsnap: snapcraft for btpd
 
 
-I wanted to take snapd and snapcraft for a spin, so chose btpd, a text based BitTorrent client. 
+I wanted to take snapd and snapcraft for a spin, so chose btpd, a text based BitTorrent client.
 
-Three apps are installed as part of this snap.
+To build the snap, simple clone the repository and issue `snapcraft` from the base of the repo.  A snap is also available in the store as btpdsnap. 
+
+Three apps are installed as part of this snap:
 
 * btpdsnap.btpd
 * btpdsnap.cli
